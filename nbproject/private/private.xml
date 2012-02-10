@@ -6,4 +6,12 @@
             <line>20</line>
         </file>
     </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/Users/mkirschner/NetBeansProjects/DynamicalSystem/src/DrawingSurface.java</file>
+        <file>file:/Users/mkirschner/NetBeansProjects/DynamicalSystem/src/SpatialTemporalSim.java</file>
+        <file>file:/Users/mkirschner/NetBeansProjects/DynamicalSystem/src/SelectedCellPanel.java</file>
+        <file>file:/Users/mkirschner/NetBeansProjects/DynamicalSystem/src/mk/dynamic/network/Grid.java</file>
+        <file>file:/Users/mkirschner/NetBeansProjects/DynamicalSystem/src/mk/dynamic/network/Node.java</file>
+        <file>file:/Users/mkirschner/NetBeansProjects/DynamicalSystem/src/mk/dynamic/network/SIRSModel.java</file>
+    </open-files>
 </project-private>
