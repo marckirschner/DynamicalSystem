@@ -149,10 +149,13 @@ public class ControlPanel extends JPanel {
         public void actionPerformed(ActionEvent ae) {
             if (ae.getActionCommand().equals("START")) {
                 try {
+                    System.out.println("CLICKED START");
                     drawingSurface.timer.setDelay(Integer.parseInt(timerDelayField.getText()));
                 } catch(Exception e) {
+                    System.out.println("Houston we have a problem");
                     System.out.println(e);
                 }
+                System.out.println("Starting Timer");
                 drawingSurface.timer.start();
                 System.out.println(drawingSurface.timer.getDelay());
                 
