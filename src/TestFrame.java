@@ -25,8 +25,29 @@ public class TestFrame extends javax.swing.JFrame {
     public TestFrame(DrawingSurface drawingSurface) {
         this.drawingSurface = drawingSurface;
         initComponents();
+        
+        System.out.println("TestFrame Constructor");
+        if (drawingSurface.grid.grid[0][0] == null) {
+            System.out.println("Grid object is Null");
+        }
+        // Evil coupling
         setSelectedCell(drawingSurface.grid.grid[0][0]);
+        drawingSurface.selectedCell = drawingSurface.grid.grid[0][0];
+        
+        
+        this.jLabel8.setText(""+drawingSurface.grid.grid[0][0].node.susceptiblePop);
+        this.jLabel9.setText(""+drawingSurface.grid.grid[0][0].node.infectivePop);
+        this.jLabel10.setText(""+drawingSurface.grid.grid[0][0].node.removedPop);
+
+
+        this.jTextField3.setText(""+drawingSurface.grid.grid[0][0].node.contactRate);
+        this.jTextField4.setText(""+drawingSurface.grid.grid[0][0].node.removalRate);
+        this.jTextField5.setText(""+drawingSurface.grid.grid[0][0].node.remToSucRate);
+        
         System.out.println("PANEL SIZE: " + selectedCellPanel.getSize());
+        
+        
+        jTextField1.setText("35");
 
        
     }
@@ -775,6 +796,7 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     }
     
     System.out.println(drawingSurface.timer);
+    System.out.println("Starting the Timer");
     drawingSurface.timer.start();
     System.out.println(drawingSurface.timer.getDelay());
                
@@ -799,6 +821,10 @@ private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
 private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 // TODO add your handling code here:
+   
+    this.drawingSurface.selectedCell.node.contactRate = Double.parseDouble(this.jTextField3.getText());
+    this.drawingSurface.selectedCell.node.removalRate = Double.parseDouble(this.jTextField4.getText());
+    this.drawingSurface.selectedCell.node.remToSucRate = Double.parseDouble(this.jTextField5.getText());
 }//GEN-LAST:event_jButton4ActionPerformed
 
 private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

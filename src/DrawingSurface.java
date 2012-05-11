@@ -72,6 +72,7 @@ public class DrawingSurface extends JPanel implements ActionListener {
                             //controlPanel.selectedCellPanel. = grid.grid[i][j];
                             
                             selectedCell = grid.grid[i][j];
+                            
                             //System.out.println("Setting selected Cell: " + selectedCell);
                            // Graphics g = controlPanel.selectedCellPanel.getGraphics();
                            // selectedCell.render(g);
@@ -113,9 +114,9 @@ public class DrawingSurface extends JPanel implements ActionListener {
         SIRSModel sirsModel = new SIRSModel(grid);
         SIRModelSwap sirModelSwap = new SIRModelSwap(grid);
         
-        //ruleList.add(sirModel);
+      //  ruleList.add(sirModel);
         ruleList.add(sirsModel);
-        ruleList.add(sirModelSwap);
+       // ruleList.add(sirModelSwap);
     }
 
     @Override
@@ -133,13 +134,31 @@ public class DrawingSurface extends JPanel implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
+      //  System.out.println("Drawing Surface");
        // System.out.println("YES");
         for (Rule rule : ruleList) {
             rule.performRule();
         }
+        
+    //    System.out.println("Performed Rules");
         repaint();
+      //  System.out.println("Repainted");
+        
         Graphics g = this.controlPanel.selectedCellPanel.getGraphics();
+        
+      //  if (g == null) {
+        //    System.out.println("Graphics Object is null");
+       // }
+        
+        //if (this.selectedCell == null) {
+          //  System.out.println("Selected Cell is null");
+        //}
+        
+      //  System.out.println("Retreived graphics object from cell panel");
+        
         this.selectedCell.render(g);
+        
+     //   System.out.println("Rendered Selected Cell");
         this.controlPanel.selectedCellPanel.repaint();
         
         controlPanel.jLabel8.setText(""+selectedCell.node.susceptiblePop);

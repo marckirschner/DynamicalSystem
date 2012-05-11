@@ -12,8 +12,6 @@ public class SelectedCellPanel extends JPanel {
     
     public void paintComponent(Graphics g) {
         super.paintComponent(g);       
-      //  g.drawString("Hello World", 10, 10);
-        
         selectedCell.render(g, 0,0, 188,161);
     }  
     
@@ -21,7 +19,6 @@ public class SelectedCellPanel extends JPanel {
     public void setSelectedCell(Cell selectedCell) {
         this.selectedCell = selectedCell;
         repaint();
-        System.out.println("ASLKJASLKDJALKSDJ");
     }
     
     public void update() {
