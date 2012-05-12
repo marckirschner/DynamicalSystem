@@ -30,8 +30,8 @@ public class Node {
         this.x = x;
         this.y = y;
         
-        contactRate=0.04;//Math.random()/10;
-        removalRate=0.1;//Math.random()/10;
+        contactRate=Math.random()/10;
+        removalRate=Math.random()/10;
         
         //System.out.println("Contact Rate=" + contactRate + ", removalRate=" + removalRate);
         
@@ -47,6 +47,10 @@ public class Node {
         infectivePop = infectivePopTmp;
         susceptiblePop = susceptiblePopTmp;
         removedPop = removedPopTmp;    
+        
+        infectivePopTmp=0;
+        susceptiblePopTmp=0;
+        removedPopTmp=0;
     }
    
     /* Mutators */

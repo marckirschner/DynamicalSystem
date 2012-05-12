@@ -23,13 +23,20 @@ public class Cell {
     
     public void render(Graphics g) {
       //  int red = 255-(int)node.infectivePop*255;
-      //  int green = 255-(int)node.susceptiblePop*255;
+       // int green = 255-(int)node.susceptiblePop*255;
       //  int blue = 255-(int)node.removedPop*255;
-        float red = 1-(float)node.infectivePop;
-        float green = 1-(float)node.susceptiblePop;
-        float blue = 1-(float)node.removedPop;
+        float red = Math.abs( (1-(float)node.infectivePop) % 256);
+        float green = Math.abs( ((1-(float)node.susceptiblePop)) % 256);
+        float blue = Math.abs( ((1-(float)node.removedPop)) % 256);
         
+       
+        
+     //   System.out.println(red + "," + green + "," + blue);
+       // if (red < 0) red=0;
+       // if (green < 0) green=0;
+       // if (blue < 0) blue =0;
         color = new Color(red,green,blue);
+        
         
         g.setColor(color);
         g.fillRect(x, y, width, height);
