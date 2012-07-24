@@ -31,11 +31,11 @@ public class SIRModel implements Rule {
                 }
                 
                  // random Disease
-                if (Math.random() < 0.00001) {
+               /* if (Math.random() < 0.00001) {
                     n.susceptiblePopTmp += -1*0.9*n.susceptiblePop;
                     n.infectivePopTmp += 1*0.9*n.susceptiblePop;
                     
-                }
+                }*/
     
               //  for (Node n2 : n.friends) {
                 //    n.infectivePopTmp += (n.contactRate/2)*n.susceptiblePop*n2.infectivePop;

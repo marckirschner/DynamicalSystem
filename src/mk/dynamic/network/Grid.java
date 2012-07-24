@@ -41,9 +41,9 @@ public class Grid {
         
         setNeighbors();
         
-        grid[10][10].node.infectivePop = 1;
+       /* grid[10][10].node.infectivePop = 1;
         grid[10][10].node.susceptiblePop = 0;
-        grid[10][10].node.removedPop = 0;
+        grid[10][10].node.removedPop = 0;*/
         
 
         

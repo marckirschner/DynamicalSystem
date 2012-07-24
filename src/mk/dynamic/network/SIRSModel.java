@@ -31,18 +31,18 @@ public class SIRSModel implements Rule {
                 }
                 
                 // random Miracles
-                if (Math.random() < 0.00001) {
+         /*       if (Math.random() < 0.1) {
                     n.susceptiblePopTmp += 0.9*n.infectivePop;
                     n.infectivePopTmp += -1*0.9*n.infectivePop;
                     
-                }
+                } */
                 
                  // random Disease
-                if (Math.random() < 0.00001) {
+                if (Math.random() < 0.000001) {
                     n.susceptiblePopTmp += -1*0.9*n.susceptiblePop;
                     n.infectivePopTmp += 1*0.9*n.susceptiblePop;
                     
-                }
+                } 
                 
 //                n.susceptiblePopTmp = n.susceptiblePop + -1*n.contactRate*n.susceptiblePop*n.infectivePop +n.remToSucRate*n.removedPop;
 //

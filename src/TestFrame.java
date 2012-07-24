@@ -5,8 +5,6 @@
  * Created on Jan 7, 2012, 7:44:38 PM
  */
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import mk.dynamic.network.Cell;
 
 /**
@@ -30,6 +28,9 @@ public class TestFrame extends javax.swing.JFrame {
         if (drawingSurface.grid.grid[0][0] == null) {
             System.out.println("Grid object is Null");
         }
+        
+        this.textFieldPopulation.setText(""+0.5);
+                
         // Evil coupling
         setSelectedCell(drawingSurface.grid.grid[0][0]);
         drawingSurface.selectedCell = drawingSurface.grid.grid[0][0];
@@ -83,16 +84,16 @@ public class TestFrame extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jTextField2 = new javax.swing.JTextField();
+        radioButtonMouseSelect = new javax.swing.JRadioButton();
+        radioButtonMouseCreate = new javax.swing.JRadioButton();
+        radioButtonSusAdd = new javax.swing.JRadioButton();
+        radioButtonInfAdd = new javax.swing.JRadioButton();
+        radioButtonRemAdd = new javax.swing.JRadioButton();
+        textFieldPopulation = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
+        radioButtonSusRem = new javax.swing.JRadioButton();
+        radioButtonInfRem = new javax.swing.JRadioButton();
+        radioButtonRemRem = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -221,38 +222,38 @@ public class TestFrame extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Mouse Control"));
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Mouse Select");
+        buttonGroup1.add(radioButtonMouseSelect);
+        radioButtonMouseSelect.setText("Mouse Select");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Mouse Create");
+        buttonGroup1.add(radioButtonMouseCreate);
+        radioButtonMouseCreate.setText("Mouse Create");
 
-        buttonGroup2.add(jRadioButton3);
-        jRadioButton3.setText("Susceptible");
+        buttonGroup2.add(radioButtonSusAdd);
+        radioButtonSusAdd.setText("Susceptible");
 
-        buttonGroup2.add(jRadioButton4);
-        jRadioButton4.setText("Infective");
+        buttonGroup2.add(radioButtonInfAdd);
+        radioButtonInfAdd.setText("Infective");
 
-        buttonGroup2.add(jRadioButton5);
-        jRadioButton5.setText("Removed");
+        buttonGroup2.add(radioButtonRemAdd);
+        radioButtonRemAdd.setText("Removed");
 
-        jTextField2.setColumns(6);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        textFieldPopulation.setColumns(6);
+        textFieldPopulation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                textFieldPopulationActionPerformed(evt);
             }
         });
 
         jLabel2.setText("Population");
 
-        buttonGroup3.add(jRadioButton6);
-        jRadioButton6.setText("Susceptible");
+        buttonGroup3.add(radioButtonSusRem);
+        radioButtonSusRem.setText("Susceptible");
 
-        buttonGroup3.add(jRadioButton7);
-        jRadioButton7.setText("Infective");
+        buttonGroup3.add(radioButtonInfRem);
+        radioButtonInfRem.setText("Infective");
 
-        buttonGroup3.add(jRadioButton8);
-        jRadioButton8.setText("Removed");
+        buttonGroup3.add(radioButtonRemRem);
+        radioButtonRemRem.setText("Removed");
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel3.setText("Add");
@@ -275,38 +276,33 @@ public class TestFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel2Layout.createSequentialGroup()
-                        .add(0, 0, Short.MAX_VALUE)
-                        .add(jRadioButton1)
-                        .add(269, 269, 269))
+                        .add(jLabel2)
+                        .add(2, 2, 2)
+                        .add(textFieldPopulation, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                     .add(jPanel2Layout.createSequentialGroup()
                         .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel2Layout.createSequentialGroup()
-                                .add(jLabel2)
-                                .add(2, 2, 2)
-                                .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(jPanel2Layout.createSequentialGroup()
-                                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jRadioButton5)
-                                    .add(jRadioButton3)
-                                    .add(jRadioButton4))
-                                .add(18, 18, 18)
-                                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jRadioButton8)
-                                    .add(jRadioButton6)
-                                    .add(jRadioButton7)
-                                    .add(jLabel4)))
-                            .add(jRadioButton2)
-                            .add(jLabel3)
-                            .add(jCheckBox1))
-                        .addContainerGap())))
+                            .add(radioButtonRemAdd)
+                            .add(radioButtonSusAdd)
+                            .add(radioButtonInfAdd))
+                        .add(18, 18, 18)
+                        .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(radioButtonRemRem)
+                            .add(radioButtonSusRem)
+                            .add(radioButtonInfRem)
+                            .add(jLabel4)))
+                    .add(radioButtonMouseCreate)
+                    .add(jLabel3)
+                    .add(jCheckBox1)
+                    .add(radioButtonMouseSelect))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jRadioButton1)
+                .add(radioButtonMouseSelect)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jRadioButton2)
+                .add(radioButtonMouseCreate)
                 .add(16, 16, 16)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel3)
@@ -314,21 +310,21 @@ public class TestFrame extends javax.swing.JFrame {
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel2Layout.createSequentialGroup()
-                        .add(jRadioButton3)
+                        .add(radioButtonSusAdd)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jRadioButton4)
+                        .add(radioButtonInfAdd)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jRadioButton5))
+                        .add(radioButtonRemAdd))
                     .add(jPanel2Layout.createSequentialGroup()
-                        .add(jRadioButton6)
+                        .add(radioButtonSusRem)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jRadioButton7)
+                        .add(radioButtonInfRem)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jRadioButton8)))
+                        .add(radioButtonRemRem)))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel2)
-                    .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(textFieldPopulation, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(jCheckBox1)
                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -781,10 +777,10 @@ public class TestFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+private void textFieldPopulationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFieldPopulationActionPerformed
 // TODO add your handling code here:
 
-}//GEN-LAST:event_jTextField2ActionPerformed
+}//GEN-LAST:event_textFieldPopulationActionPerformed
 
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 // TODO add your handling code here:
@@ -927,14 +923,6 @@ private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     public javax.swing.JTextField jTextField10;
@@ -942,7 +930,6 @@ private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     public javax.swing.JTextField jTextField12;
     public javax.swing.JTextField jTextField13;
     public javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField4;
     public javax.swing.JTextField jTextField5;
@@ -950,6 +937,15 @@ private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     public javax.swing.JTextField jTextField9;
+    public javax.swing.JRadioButton radioButtonInfAdd;
+    public javax.swing.JRadioButton radioButtonInfRem;
+    public javax.swing.JRadioButton radioButtonMouseCreate;
+    public javax.swing.JRadioButton radioButtonMouseSelect;
+    public javax.swing.JRadioButton radioButtonRemAdd;
+    public javax.swing.JRadioButton radioButtonRemRem;
+    public javax.swing.JRadioButton radioButtonSusAdd;
+    public javax.swing.JRadioButton radioButtonSusRem;
     public javax.swing.JPanel selectedCellPanel;
+    public javax.swing.JTextField textFieldPopulation;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,13 +25,22 @@ public class Node {
     public double removalRate;
     public double remToSucRate;
     
+    double removalRateMax;
+    
+    
+    public double tempContactRate;
+    public double tempRemovalRate;
+    
+    public double contactRateMax;
+    
     public Node(int x, int y) {
         //friends = new ArrayList<Node>();
         this.x = x;
         this.y = y;
-        
-        contactRate=Math.random()/10;
-        removalRate=Math.random()/10;
+        contactRateMax=0.05;
+        removalRateMax=0.05;
+        contactRate=contactRateMax;
+        removalRate=removalRateMax;
         
         //System.out.println("Contact Rate=" + contactRate + ", removalRate=" + removalRate);
         
@@ -40,7 +49,7 @@ public class Node {
         
         susceptiblePop = 1;
         
-       remToSucRate=Math.random();//0.04;
+       remToSucRate=Math.random()/10;
     }
      
     public void swap() {
